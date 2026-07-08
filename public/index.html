@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 AI Video Generator</h1>
+            <p>Transform images and PDFs into stunning AI-generated videos</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <h2>Upload Media</h2>
+                <form id="videoForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fileInput">Choose Image or PDF:</label>
+                        <input 
+                            type="file" 
+                            id="fileInput" 
+                            accept="image/*,.pdf" 
+                            required
+                        >
+                        <p class="help-text">Supported: JPG, PNG, WebP, PDF</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="promptInput">Describe the video you want:</label>
+                        <textarea 
+                            id="promptInput" 
+                            placeholder="e.g., 'Animate this image with smooth, dynamic motion and camera pans'"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Generate Video</button>
+                </form>
+            </div>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>Generated Video</h2>
+                <div class="video-container">
+                    <video id="videoPlayer" controls width="100%">
+                        <source id="videoSource" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-info">
+                    <p><strong>Prompt:</strong> <span id="promptDisplay"></span></p>
+                    <a id="downloadBtn" href="#" class="btn btn-secondary" download>Download Video</a>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generating your video... This may take 1-2 minutes</p>
+            </div>
+
+            <div id="error" class="error" style="display: none;"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
