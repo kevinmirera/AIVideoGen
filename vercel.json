@@ -1,5 +1,4 @@
 {
-  
   "version": 2,
   "builds": [
     {
@@ -9,11 +8,12 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ],
-  "env": {
-    "REPLICATE_API_TOKEN": "@replicate_api_token"
-  }
+  ]
 }
